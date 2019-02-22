@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getPrincipalAccess"></a>
 # **getPrincipalAccess**
-> AccessPagination getPrincipalAccess(username, application)
+> AccessPagination getPrincipalAccess(application, opts)
 
 Get the permitted access for a principal in the tenant
 
@@ -24,9 +24,13 @@ basic_auth.username = 'YOUR USERNAME';
 basic_auth.password = 'YOUR PASSWORD';
 
 let apiInstance = new RoleBasedAccessControl.AccessApi();
-let username = "username_example"; // String | Unique username of the principal to obtain access for
 let application = "application_example"; // String | The application name to obtain access for the principal
-apiInstance.getPrincipalAccess(username, application).then((data) => {
+let opts = {
+  'username': "username_example", // String | Unique username of the principal to obtain access for
+  'pageSize': 10, // Number | Parameter for selecting the amount of data in a page.
+  'page': 1 // Number | Parameter for selecting the page of data.
+};
+apiInstance.getPrincipalAccess(application, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -38,8 +42,10 @@ apiInstance.getPrincipalAccess(username, application).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **String**| Unique username of the principal to obtain access for | 
  **application** | **String**| The application name to obtain access for the principal | 
+ **username** | **String**| Unique username of the principal to obtain access for | [optional] 
+ **pageSize** | **Number**| Parameter for selecting the amount of data in a page. | [optional] [default to 10]
+ **page** | **Number**| Parameter for selecting the page of data. | [optional] [default to 1]
 
 ### Return type
 

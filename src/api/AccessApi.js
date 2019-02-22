@@ -38,17 +38,16 @@ export default class AccessApi {
 
     /**
      * Get the permitted access for a principal in the tenant
-     * @param {String} username Unique username of the principal to obtain access for
      * @param {String} application The application name to obtain access for the principal
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.username Unique username of the principal to obtain access for
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AccessPagination} and HTTP response
      */
-    getPrincipalAccessWithHttpInfo(username, application) {
+    getPrincipalAccessWithHttpInfo(application, opts) {
+      opts = opts || {};
       let postBody = null;
-
-      // verify the required parameter 'username' is set
-      if (username === undefined || username === null) {
-        throw new Error("Missing the required parameter 'username' when calling getPrincipalAccess");
-      }
 
       // verify the required parameter 'application' is set
       if (application === undefined || application === null) {
@@ -59,8 +58,10 @@ export default class AccessApi {
       let pathParams = {
       };
       let queryParams = {
-        'username': username,
-        'application': application
+        'application': application,
+        'username': opts['username'],
+        'page_size': opts['pageSize'],
+        'page': opts['page']
       };
       let headerParams = {
       };
@@ -81,12 +82,15 @@ export default class AccessApi {
 
     /**
      * Get the permitted access for a principal in the tenant
-     * @param {String} username Unique username of the principal to obtain access for
      * @param {String} application The application name to obtain access for the principal
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.username Unique username of the principal to obtain access for
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AccessPagination}
      */
-    getPrincipalAccess(username, application) {
-      return this.getPrincipalAccessWithHttpInfo(username, application)
+    getPrincipalAccess(application, opts) {
+      return this.getPrincipalAccessWithHttpInfo(application, opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

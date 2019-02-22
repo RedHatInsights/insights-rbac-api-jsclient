@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 <a name="listGroups"></a>
 # **listGroups**
-> GroupPagination listGroups()
+> GroupPagination listGroups(opts)
 
 List the groups for a tenant
 
@@ -258,7 +258,11 @@ basic_auth.username = 'YOUR USERNAME';
 basic_auth.password = 'YOUR PASSWORD';
 
 let apiInstance = new RoleBasedAccessControl.GroupApi();
-apiInstance.listGroups().then((data) => {
+let opts = {
+  'pageSize': 10, // Number | Parameter for selecting the amount of data in a page.
+  'page': 1 // Number | Parameter for selecting the page of data.
+};
+apiInstance.listGroups(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -267,7 +271,11 @@ apiInstance.listGroups().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Number**| Parameter for selecting the amount of data in a page. | [optional] [default to 10]
+ **page** | **Number**| Parameter for selecting the page of data. | [optional] [default to 1]
 
 ### Return type
 

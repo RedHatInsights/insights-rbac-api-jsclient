@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 <a name="listPrincipals"></a>
 # **listPrincipals**
-> PrincipalPagination listPrincipals()
+> PrincipalPagination listPrincipals(opts)
 
 List the principals for a tenant
 
@@ -70,7 +70,11 @@ basic_auth.username = 'YOUR USERNAME';
 basic_auth.password = 'YOUR PASSWORD';
 
 let apiInstance = new RoleBasedAccessControl.PrincipalApi();
-apiInstance.listPrincipals().then((data) => {
+let opts = {
+  'pageSize': 10, // Number | Parameter for selecting the amount of data in a page.
+  'page': 1 // Number | Parameter for selecting the page of data.
+};
+apiInstance.listPrincipals(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -79,7 +83,11 @@ apiInstance.listPrincipals().then((data) => {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Number**| Parameter for selecting the amount of data in a page. | [optional] [default to 10]
+ **page** | **Number**| Parameter for selecting the page of data. | [optional] [default to 1]
 
 ### Return type
 

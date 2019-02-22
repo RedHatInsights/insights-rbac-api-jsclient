@@ -88,15 +88,21 @@ export default class PrincipalApi {
 
     /**
      * List the principals for a tenant
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/PrincipalPagination} and HTTP response
      */
-    listPrincipalsWithHttpInfo() {
+    listPrincipalsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
 
       let pathParams = {
       };
       let queryParams = {
+        'page_size': opts['pageSize'],
+        'page': opts['page']
       };
       let headerParams = {
       };
@@ -117,10 +123,13 @@ export default class PrincipalApi {
 
     /**
      * List the principals for a tenant
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/PrincipalPagination}
      */
-    listPrincipals() {
-      return this.listPrincipalsWithHttpInfo()
+    listPrincipals(opts) {
+      return this.listPrincipalsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

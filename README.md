@@ -77,9 +77,13 @@ basic_auth.username = 'YOUR USERNAME'
 basic_auth.password = 'YOUR PASSWORD'
 
 var api = new RoleBasedAccessControl.AccessApi()
-var username = "username_example"; // {String} Unique username of the principal to obtain access for
 var application = "application_example"; // {String} The application name to obtain access for the principal
-api.getPrincipalAccess(username, application).then(function(data) {
+var opts = {
+  'username': "username_example", // {String} Unique username of the principal to obtain access for
+  'pageSize': 10, // {Number} Parameter for selecting the amount of data in a page.
+  'page': 1 // {Number} Parameter for selecting the page of data.
+};
+api.getPrincipalAccess(application, opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

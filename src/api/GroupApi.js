@@ -301,15 +301,21 @@ export default class GroupApi {
 
     /**
      * List the groups for a tenant
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GroupPagination} and HTTP response
      */
-    listGroupsWithHttpInfo() {
+    listGroupsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
 
       let pathParams = {
       };
       let queryParams = {
+        'page_size': opts['pageSize'],
+        'page': opts['page']
       };
       let headerParams = {
       };
@@ -330,10 +336,13 @@ export default class GroupApi {
 
     /**
      * List the groups for a tenant
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.pageSize Parameter for selecting the amount of data in a page. (default to 10)
+     * @param {Number} opts.page Parameter for selecting the page of data. (default to 1)
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupPagination}
      */
-    listGroups() {
-      return this.listGroupsWithHttpInfo()
+    listGroups(opts) {
+      return this.listGroupsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
