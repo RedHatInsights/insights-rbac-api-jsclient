@@ -1,6 +1,6 @@
 # RoleBasedAccessControl.GroupApi
 
-All URIs are relative to *http://localhost/r/insights/platform/rbac/api/v1*
+All URIs are relative to *http://localhost/r/insights/platform/rbac/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

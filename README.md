@@ -94,7 +94,7 @@ api.getPrincipalAccess(application, opts).then(function(data) {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/r/insights/platform/rbac/api/v1*
+All URIs are relative to *http://localhost/r/insights/platform/rbac/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
