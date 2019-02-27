@@ -349,4 +349,60 @@ export default class GroupApi {
     }
 
 
+    /**
+     * Udate a group in the tenant
+     * @param {String} uuid ID of group to update
+     * @param {module:model/Group} group Group to update in tenant
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GroupOut} and HTTP response
+     */
+    updateGroupWithHttpInfo(uuid, group) {
+      let postBody = group;
+
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling updateGroup");
+      }
+
+      // verify the required parameter 'group' is set
+      if (group === undefined || group === null) {
+        throw new Error("Missing the required parameter 'group' when calling updateGroup");
+      }
+
+
+      let pathParams = {
+        'uuid': uuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['basic_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json', '*/*'];
+      let returnType = GroupOut;
+
+      return this.apiClient.callApi(
+        '/groups/{uuid}/', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Udate a group in the tenant
+     * @param {String} uuid ID of group to update
+     * @param {module:model/Group} group Group to update in tenant
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupOut}
+     */
+    updateGroup(uuid, group) {
+      return this.updateGroupWithHttpInfo(uuid, group)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
 }

@@ -108,6 +108,16 @@
         done();
       });
     });
+    describe('updateGroup', function() {
+      it('should call updateGroup successfully', function(done) {
+        //uncomment below and update the code to test updateGroup
+        //instance.updateGroup(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

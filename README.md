@@ -105,6 +105,7 @@ Class | Method | HTTP request | Description
 *RoleBasedAccessControl.GroupApi* | [**deletePrincipalFromGroup**](docs/GroupApi.md#deletePrincipalFromGroup) | **DELETE** /groups/{uuid}/principals/ | Remove a principal from a group in the tenant
 *RoleBasedAccessControl.GroupApi* | [**getGroup**](docs/GroupApi.md#getGroup) | **GET** /groups/{uuid}/ | Get a group in the tenant
 *RoleBasedAccessControl.GroupApi* | [**listGroups**](docs/GroupApi.md#listGroups) | **GET** /groups/ | List the groups for a tenant
+*RoleBasedAccessControl.GroupApi* | [**updateGroup**](docs/GroupApi.md#updateGroup) | **PUT** /groups/{uuid}/ | Udate a group in the tenant
 *RoleBasedAccessControl.PolicyApi* | [**createPolicies**](docs/PolicyApi.md#createPolicies) | **POST** /policies/ | Create a policy in a tenant
 *RoleBasedAccessControl.PolicyApi* | [**deletePolicy**](docs/PolicyApi.md#deletePolicy) | **DELETE** /policies/{uuid}/ | Delete a policy in the tenant
 *RoleBasedAccessControl.PolicyApi* | [**getPolicy**](docs/PolicyApi.md#getPolicy) | **GET** /policies/{uuid}/ | Get a policy in the tenant

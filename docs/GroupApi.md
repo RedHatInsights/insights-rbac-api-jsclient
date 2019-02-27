@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deletePrincipalFromGroup**](GroupApi.md#deletePrincipalFromGroup) | **DELETE** /groups/{uuid}/principals/ | Remove a principal from a group in the tenant
 [**getGroup**](GroupApi.md#getGroup) | **GET** /groups/{uuid}/ | Get a group in the tenant
 [**listGroups**](GroupApi.md#listGroups) | **GET** /groups/ | List the groups for a tenant
+[**updateGroup**](GroupApi.md#updateGroup) | **PUT** /groups/{uuid}/ | Udate a group in the tenant
 
 
 <a name="addPrincipalToGroup"></a>
@@ -289,4 +290,51 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+<a name="updateGroup"></a>
+# **updateGroup**
+> GroupOut updateGroup(uuid, group)
+
+Udate a group in the tenant
+
+### Example
+```javascript
+import RoleBasedAccessControl from 'role_based_access_control';
+let defaultClient = RoleBasedAccessControl.ApiClient.instance;
+
+// Configure HTTP basic authorization: basic_auth
+let basic_auth = defaultClient.authentications['basic_auth'];
+basic_auth.username = 'YOUR USERNAME';
+basic_auth.password = 'YOUR PASSWORD';
+
+let apiInstance = new RoleBasedAccessControl.GroupApi();
+let uuid = null; // String | ID of group to update
+let group = new RoleBasedAccessControl.Group(); // Group | Group to update in tenant
+apiInstance.updateGroup(uuid, group).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | [**String**](.md)| ID of group to update | 
+ **group** | [**Group**](Group.md)| Group to update in tenant | 
+
+### Return type
+
+[**GroupOut**](GroupOut.md)
+
+### Authorization
+
+[basic_auth](../README.md#basic_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, */*
 
