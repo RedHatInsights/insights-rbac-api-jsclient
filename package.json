@@ -46,6 +46,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lgalis/approval-api-jsclient.git"
+    "url": "https://github.com/lgalis/insights-rbac-jsclient.git"
   }
 }
